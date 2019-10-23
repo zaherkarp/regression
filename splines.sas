@@ -13,7 +13,7 @@ proc print data=knots;
 run;
 
 
-LINEAR SPLINES
+*LINEAR SPLINES
 
     *linear spline basis;
     age  = age_ghgb;
@@ -31,9 +31,9 @@ run;
 proc glm data=ghb_linear;
     model hba1c = age age2 age3 age4 / clparm;
     contrast 'age, overall' age 1, age2 1, age3 1, age4 1;
-does age matter? do we need age?
+*does age matter? do we need age?
     contrast 'age, nonlinear' age2 1, age3 1, age4 1;
-is this a linear relationship?
+*is this a linear relationship?
     estimate 'age 5' intercept 1 age 5;
 
     estimate 'age 10' intercept 1 age 10 age2 1.25257;
@@ -52,7 +52,7 @@ run;
 
 
 
-CUBIC SPLINES
+*CUBIC SPLINES
 
 data ghb_cubic;
     set here.ghb;
